@@ -1,0 +1,81 @@
+.create {
+	position: relative;
+}
+
+.create-input {
+	right: 2.1875rem;
+	bottom: 2.125rem;
+	padding: .375rem .5rem;
+	width: 0;
+	max-width: calc(100% - 6rem);
+	
+	color: var(--color-primary);
+	background-color: var(--color-bg-wrapper);
+	border: .0625rem solid var(--color-secondary);
+	border-radius: .25rem 0 0 .25rem;
+	outline: 0;
+	
+	transition: right var(--anim-duration) var(--anim-function),
+	            width var(--anim-duration) var(--anim-function);
+	
+	pointer-events: all;
+	cursor: text;
+	
+	position: fixed;
+	z-index: 3;
+}
+
+.create.open .create-input {
+	right: 4rem;
+	width: 15.25rem;
+}
+
+.create-button {
+	right: 1.5rem;
+	bottom: 1.5rem;
+	padding: 1rem;
+	
+	font-size: .75rem;
+	
+	color: var(--color-bg-wrapper);
+	background-color: var(--color-accent);
+	border: .125rem solid var(--color-accent);
+	border-radius: 50%;
+	outline: none;
+	
+	transition: color var(--anim-duration) var(--anim-function),
+	 background-color var(--anim-duration) var(--anim-function),
+	     border-color var(--anim-duration) var(--anim-function),
+	        transform var(--anim-duration) var(--anim-function);
+	
+	pointer-events: all;
+	cursor: pointer;
+	
+	position: fixed;
+	z-index: 4;
+	
+}
+
+@media screen and (min-width: 48rem) {
+	.create-button,
+	.create-input {
+		position: absolute;
+	}
+}
+
+.create.open .create-button {
+	color: var(--color-accent);
+	background-color: var(--color-bg-wrapper);
+}
+.create.open .create-button:hover {
+	color: var(--color-accent-hover);
+	border-color: var(--color-accent-hover);
+}
+.create:not(.open) .create-button:hover {
+	background-color: var(--color-accent-hover);
+	border-color: var(--color-accent-hover);
+}
+
+.create.empty .create-button {
+	transform: rotate(45deg);
+}

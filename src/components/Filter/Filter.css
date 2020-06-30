@@ -1,0 +1,41 @@
+.filter {
+	flex: 0 0 auto;
+	display: flex;
+}
+
+.filter-button {
+	padding: .5rem;
+	
+	font-size: .75rem;
+	line-height: 1rem;
+	text-transform: capitalize;
+	
+	transition: color var(--anim-duration) var(--anim-function);
+	
+	pointer-events: all;
+	cursor: pointer;
+	
+	position: relative;
+	display: block;
+	
+	z-index: 2;
+}
+
+.filter-button:hover {
+	color: var(--color-primary-75);
+}
+
+.filter-button:not(:first-child):before {
+	top: .625rem;
+	left: 0;
+	height: .75rem;
+	content: '';
+	border-left: .0625rem solid var(--color-secondary);
+	position: absolute;
+}
+
+.filter-button.active {
+	color: var(--color-accent);
+	pointer-events: none;
+	cursor: default;
+}

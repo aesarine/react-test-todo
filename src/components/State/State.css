@@ -1,0 +1,36 @@
+.state {
+	padding: .125rem 1.75rem;
+	flex-direction: column;
+	border-bottom: .25rem solid var(--color-secondary);
+	position: relative;
+	display: flex;
+}
+
+.state-text {
+	font-size: .75rem;
+	color: var(--color-accent);
+}
+
+.state-numb {
+	margin-top: -1rem;
+	margin-right: -.75rem;
+	font-size: 1.25rem;
+	text-align: right;
+	color: var(--color-accent);
+	display: block;
+}
+	
+.state-numb:after {
+	padding-left: .0625rem;
+	content: '%';
+	font-size: .875rem;
+	opacity: .875;
+}
+
+.state-line {
+	bottom: -.25rem;
+	left: 0;
+	height: .25rem;
+	background-color: var(--color-accent);
+	position: absolute;
+}

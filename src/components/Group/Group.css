@@ -1,0 +1,15 @@
+.group {
+	margin-bottom: -.0625rem;
+	padding: 1.5rem 1.5rem .75rem;
+	background-color: var(--color-bg-wrapper);
+	position: relative;
+	display: flex;
+	z-index: 1;
+}
+
+.group-text {
+	font-size: .5rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: .0625rem;
+}

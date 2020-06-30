@@ -1,0 +1,178 @@
+.task {
+	padding: 0 1rem;
+	width: 100%;
+	height: 2.5rem;
+	
+	align-items: center;
+	justify-content: space-between;
+	
+	background-color: var(--color-bg-wrapper);
+	border-color: var(--color-secondary-10);
+	transition: border-color var(--anim-duration) var(--anim-function);
+	
+	border-top-width: .0625rem;
+	border-top-style: solid;
+	
+	pointer-events: all;
+	position: relative;
+	display: flex;
+}
+
+.task:first-of-type {
+	border-top-color: transparent;
+}
+
+.task:hover,
+.task:hover + .task,
+.task.renaming,
+.task.renaming + .task {
+	border-color: var(--color-secondary-50);
+}
+
+.task:hover .task-important,
+.task.renaming .task-important {
+	border-color: var(--color-accent-50);
+}
+.task:hover .task-status:after,
+.task:hover .task-delete:after,
+.task.renaming .task-status:after,
+.task.renaming .task-delete:after {
+	color: var(--color-secondary-75);
+}
+
+.task.important .task-important {
+	border-color: var(--color-accent);
+}
+.task.important .task-important:hover {
+	border-color: var(--color-accent-50);
+}
+
+.task.completed .task-status:before {
+	background-color: var(--color-accent);
+	border-color: var(--color-accent);
+}
+.task.completed .task-status:after {
+	color: var(--color-bg-wrapper);
+}
+.task.completed .task-name,
+.task.completed .task-text {
+	color: var(--color-secondary);
+	text-decoration: line-through;
+}
+.task.renaming .task-status,
+.task.renaming .task-important,
+.task.renaming .task-delete {
+	pointer-events: none;
+}
+.task.renaming .task-text {
+	pointer-events: all;
+	opacity: 1;
+}
+
+.task-status {
+	padding: .75rem;
+	
+	flex: 0 0 auto;
+	position: relative;
+	display: block;
+	
+	pointer-events: all;
+	cursor: pointer;
+}
+
+.task-status:before {
+	width: 1rem;
+	height: 1rem;
+	content: '';
+	border: .0625rem solid var(--color-secondary);
+	border-radius: 50%;
+	transition: background-color var(--anim-duration) var(--anim-function),
+	                border-color var(--anim-duration) var(--anim-function);
+	box-sizing: border-box;
+	display: block;
+}
+
+.task-status:after {
+	top: 1.0625rem;
+	left: 1rem;
+	font-size: .5rem;
+	color: var(--color-bg-wrapper);
+	transition: color var(--anim-duration) var(--anim-function);
+	position: absolute;
+}
+
+.task-name {
+	padding: .75rem .5rem;
+	width: 100%;
+	line-height: 1rem;
+	
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	
+	pointer-events: all;
+	position: relative;
+	cursor: default;
+}
+
+.task-text {
+	top: 0;
+	left: 0;
+	padding: inherit;
+	width: 100%;
+	height: 100%;
+	
+	font: inherit;
+	color: inherit;
+	
+	border: none;
+	outline: none;
+	
+	position: absolute;
+	opacity: 0;
+	cursor: text;
+}
+
+.task-important {
+	top: 0;
+	left: 0;
+	width: 1rem;
+	height: 100%;
+	border-left: .125rem solid transparent;
+	transition: border-width var(--anim-duration) var(--anim-function),
+	            border-color var(--anim-duration) var(--anim-function);
+	position: absolute;
+	display: block;
+	
+	pointer-events: all;
+	cursor: pointer;	
+}
+
+.task-important:hover {
+	border-left-width: .25rem;
+}
+	
+.task-delete {
+	padding: 1rem .9375rem .875rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	
+	flex: 0 0 auto;
+	position: relative;
+	display: block;
+	
+	pointer-events: all;
+	cursor: pointer;
+	display: block;
+}
+
+.task-delete:after {
+	color: transparent;
+	transition: color var(--anim-duration) var(--anim-function);
+	font-size: .625rem;
+	display: block;
+}
+
+.task-delete:hover::after {
+	color: var(--color-primary) !important;
+}
